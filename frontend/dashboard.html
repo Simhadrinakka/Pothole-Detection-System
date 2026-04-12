@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AI Pothole Detection</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <div class="app-content" id="appContent">
+        <header class="app-topbar">
+            <div class="brand-wrap">
+                <img class="app-logo" src="logo.jpg" alt="AI Pothole Detection logo">
+                <div class="brand-copy">
+                    <span class="app-brand">AI Pothole Detection</span>
+                    <p>Road monitoring dashboard</p>
+                </div>
+            </div>
+            <button id="logoutBtn" class="ghost-btn" type="button">Log Out</button>
+        </header>
+
+        <section class="hero">
+            <div class="ai-glow"></div>
+            <div class="particles" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <h1 class="main-title">AI Pothole Detection</h1>
+                    <p class="subtitle">Smart Road Monitoring using Artificial Intelligence</p>
+                    <button class="hero-btn" onclick="scrollToDetect()">Start Detection</button>
+                </div>
+
+                <div class="hero-visual">
+                    <img src="hero.png" alt="AI Pothole Detection hero illustration">
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2 class="section-title">System Features</h2>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>⚡ Fast Detection</h3>
+                    <p>Detect potholes quickly using YOLO models.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🎯 High Accuracy</h3>
+                    <p>Deep learning detection with high precision.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🌍 Smart Monitoring</h3>
+                    <p>Automated road damage detection.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="detect" id="detect-section">
+            <h2 class="section-title">Upload Image for Detection</h2>
+
+            <div class="detect-layout">
+                <div class="upload-box">
+                    <input type="file" id="imageUpload" accept="image/*">
+
+                    <button id="detectBtn">Detect Potholes</button>
+
+                    <div class="image-row">
+                        <div>
+                            <h4>Uploaded Image</h4>
+                            <img id="uploadedImage" class="preview hidden" alt="Uploaded Image">
+                        </div>
+
+                        <div>
+                            <h4>Detected Image</h4>
+                            <img id="detectedImage" class="preview hidden" alt="Detected Image">
+                        </div>
+                    </div>
+
+                    <div class="heatmap-section" id="heatmap-section">
+                        <h4>Heatmap Visualization</h4>
+                        <img id="heatmapImage" class="preview heatmap-preview hidden" alt="Heatmap Visualization">
+                    </div>
+                </div>
+
+                <div class="model-dashboard">
+                    <h3>Model Prediction</h3>
+
+                    <div class="model-info">
+                        <div class="info-box">
+                            <span class="label">Model</span>
+                            <span class="value">YOLOv8</span>
+                        </div>
+
+                        <div class="info-box">
+                            <span class="label">Potholes</span>
+                            <span class="value" id="potholeCount">0</span>
+                        </div>
+
+                        <div class="info-box">
+                            <span class="label">Accuracy</span>
+                            <span class="value" id="accuracy">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

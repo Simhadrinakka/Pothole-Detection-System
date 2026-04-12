@@ -1,134 +1,90 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-<title>AI Pothole Detection</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <title>AI Pothole Detection</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
-
 
 <body>
 
-<div class="background"></div>
+    <div class="background"></div>
 
-<section class="hero">
-<div class="ai-glow"></div>
-<div class="particles">
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-</div>
+    <section class="auth-screen" id="authScreen">
+        <div class="cloud-overlay"></div>
+        <div class="auth-shell">
+            <div class="auth-card">
+                <div class="auth-card-head">
+                    <p class="auth-kicker">Welcome back</p>
+                    <h2>Sign in to continue</h2>
+                    <p class="auth-card-copy">Enter email and password to login .</p>
+                </div>
 
-<h1 class="main-title">AI Pothole Detection</h1>
+                <div class="auth-tabs" role="tablist" aria-label="Authentication options">
+                    <button class="auth-tab active" data-auth-tab="signin" type="button">Sign In</button>
+                    <button class="auth-tab" data-auth-tab="signup" type="button">Sign Up</button>
+                </div>
 
-<p class="subtitle">Smart Road Monitoring using Artificial Intelligence</p>
-<button class="hero-btn" onclick="scrollToDetect()">Start Detection</button>
+                <div class="auth-alert hidden" id="authAlert" role="alert"></div>
 
-</section>
+                <form class="auth-form active" id="signinForm">
+                    <div class="social-row">
+                        <button type="button" class="social-btn" data-social="google" aria-label="Continue with Google"><i class="fa-brands fa-google"></i></button>
+                        <button type="button" class="social-btn" data-social="facebook" aria-label="Continue with Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                        <button type="button" class="social-btn" data-social="linkedin" aria-label="Continue with LinkedIn"><i class="fa-brands fa-linkedin-in"></i></button>
+                        <button type="button" class="social-btn" data-social="github" aria-label="Continue with GitHub"><i class="fa-brands fa-github"></i></button>
+                    </div>
 
+                    <div class="auth-divider"><span>OR</span></div>
 
-<section class="features">
+                    <label>
+                        E-Mail Address
+                        <input type="text" id="signinEmail" placeholder="Enter any email or username..." required>
+                    </label>
+                    <label>
+                        Password
+                        <input type="password" id="signinPassword" placeholder="Password@123" required>
+                    </label>
+                    <div class="auth-inline-row">
+                        <label class="check-row"><input type="checkbox" id="rememberMe"> Remember me</label>
+                        <button type="button" class="text-btn">Forgot password?</button>
+                    </div>
+                    <button type="submit" class="auth-submit">Sign In</button>
+                    <p class="auth-hint">Dont have an account yet? Use the Sign Up tab.</p>
+                </form>
 
-<h2 class="section-title">System Features</h2>
+                <form class="auth-form" id="signupForm">
+                    <div class="social-row">
+                        <button type="button" class="social-btn" data-social="google" aria-label="Sign up with Google"><i class="fa-brands fa-google"></i></button>
+                        <button type="button" class="social-btn" data-social="facebook" aria-label="Sign up with Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                        <button type="button" class="social-btn" data-social="linkedin" aria-label="Sign up with LinkedIn"><i class="fa-brands fa-linkedin-in"></i></button>
+                        <button type="button" class="social-btn" data-social="github" aria-label="Sign up with GitHub"><i class="fa-brands fa-github"></i></button>
+                    </div>
 
-<div class="feature-grid">
+                    <div class="auth-divider"><span>OR</span></div>
 
-<div class="feature-card">
-<h3>⚡ Fast Detection</h3>
-<p>Detect potholes quickly using YOLO models.</p>
-</div>
+                    <label>
+                        Full Name
+                        <input type="text" id="signupName" placeholder="Your name" required>
+                    </label>
+                    <label>
+                        E-Mail Address
+                        <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                    </label>
+                    <label>
+                        Password
+                        <input type="password" id="signupPassword" placeholder="Create your password" required>
+                    </label>
+                    <button type="submit" class="auth-submit">Create Account</button>
+                    <p class="auth-hint">Social sign up buttons above are available as quick entry options.</p>
+                </form>
+            </div>
+        </div>
+    </section>
 
-<div class="feature-card">
-<h3>🎯 High Accuracy</h3>
-<p>Deep learning detection with high precision.</p>
-</div>
-
-<div class="feature-card">
-<h3>🌍 Smart Monitoring</h3>
-<p>Automated road damage detection.</p>
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="detect" id="detect-section">
-
-<h2 class="section-title">Upload Image for Detection</h2>
-
-<div class="detect-layout">
-
-<div class="upload-box">
-
-<input type="file" id="imageUpload" accept="image/*">
-
-<button onclick="detect()">Detect Potholes</button>
-
-<div class="image-row">
-
-<div>
-
-<h4>Uploaded Image</h4>
-
-<img id="uploadedImage">
-
-</div>
-
-<div>
-
-<h4>Detected Image</h4>
-
-<img id="detectedImage">
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<div class="model-dashboard">
-
-<h3>Model Prediction</h3>
-
-<div class="model-info">
-
-<div class="info-box">
-<span class="label">Model</span>
-<span class="value">YOLOv8</span>
-</div>
-
-<div class="info-box">
-<span class="label">Potholes</span>
-<span class="value" id="potholeCount">0</span>
-</div>
-
-<div class="info-box">
-<span class="label">Accuracy</span>
-<span class="value">92%</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
