@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Python test/cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Runtime uploaded images
+backend/uploads/*
+
+# Runtime generated detection/heatmap outputs
+backend/outputs/*
+
+# YOLO generated prediction runs
+runs/detect/predict2/
+
+# Keep important project/training artifacts already tracked
+# (Do NOT ignore the dataset, trained model, training results,
+# frontend assets, or existing tracked prediction results.)
